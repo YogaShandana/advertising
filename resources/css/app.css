@@ -1,0 +1,40 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../**/*.vue';
+
+:root {
+    --bs-primary: #1c4a86;
+    --bs-primary-rgb: 28, 74, 134;
+    --bs-link-color: #1c4a86;
+    --bs-link-hover-color: #153a6b;
+}
+
+.btn-primary {
+    --bs-btn-bg: #1c4a86;
+    --bs-btn-border-color: #1c4a86;
+    --bs-btn-hover-bg: #153a6b;
+    --bs-btn-hover-border-color: #143663;
+    --bs-btn-active-bg: #143663;
+    --bs-btn-active-border-color: #12325c;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #1c4a86;
+    --bs-btn-border-color: #1c4a86;
+    --bs-btn-hover-bg: #1c4a86;
+    --bs-btn-active-bg: #1c4a86;
+    --bs-btn-disabled-color: #1c4a86;
+    --bs-btn-disabled-border-color: #1c4a86;
+}
+
+body {
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}

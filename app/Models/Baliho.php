@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Baliho extends Model
+{
+    protected $guarded = [];
+
+    protected $casts = [
+        'bookings' => 'array',
+        'images' => 'array',
+    ];
+}
