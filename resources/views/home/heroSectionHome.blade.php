@@ -12,7 +12,7 @@
   <div class="container position-relative mt-lg-5" style="z-index: 2;">
     <div class="row">
       <div class="col-lg-6 col-md-8">
-        <h1 class="display-3 fw-bold text-white mb-4" style="font-size: 3.5rem; line-height: 1.2;" data-aos="fade-down" data-aos-duration="1200">
+        <h1 class="display-3 fw-bold text-white mb-4" style="font-size: 3.5rem; line-height: 1.2; -webkit-text-fill-color: white; -webkit-text-stroke: 0; color: white !important;" data-aos="fade-down" data-aos-duration="1200">
           {!! $heroTitle !!}
         </h1>
         
