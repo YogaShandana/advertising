@@ -14,7 +14,7 @@ class VideotronSeeder extends Seeder
         
         // Koordinat GPS untuk setiap lokasi
         $coordinates = [
-            '13. GATOT SUBROTO' => 'https://www.google.com/maps?q=-8.6705,115.2126', // Jl. Gatot Subroto, Denpasar
+            '13. GATOT SUBROTO' => '-8.6705, 115.2126', // Jl. Gatot Subroto, Denpasar
         ];
         
         $isFirst = true;
@@ -22,7 +22,7 @@ class VideotronSeeder extends Seeder
             $judul = basename($locationPath);
             
             // Get koordinat atau default ke Denpasar
-            $mapsLink = $coordinates[$judul] ?? 'https://www.google.com/maps?q=-8.6705,115.2126';
+            $mapsLink = $coordinates[$judul] ?? '-8.6705, 115.2126';
             
             $imageFiles = array_values(array_filter(scandir($locationPath), function($f) use ($locationPath) {
                 return is_file($locationPath . '/' . $f) && !str_starts_with($f, '.');
