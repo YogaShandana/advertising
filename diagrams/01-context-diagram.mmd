@@ -1,0 +1,29 @@
+graph TB
+    subgraph External_Entities[" "]
+        Pengunjung[👤 Pengunjung Website]
+        Admin[👨‍💼 Admin/User]
+    end
+    
+    subgraph System[" "]
+        WebsiteSystem[🌐 Sistem Website Advertising<br/>OnetEchno Cahya]
+    end
+    
+    subgraph Database[" "]
+        DB[(🗄️ Database<br/>MySQL)]
+        Storage[📁 File Storage<br/>Images]
+    end
+    
+    Pengunjung -->|View Layanan<br/>View Tentang Kami<br/>View Kontak| WebsiteSystem
+    WebsiteSystem -->|Tampilkan Data<br/>& Images| Pengunjung
+    
+    Admin -->|Login<br/>Kelola Data| WebsiteSystem
+    WebsiteSystem -->|Dashboard<br/>Data Management| Admin
+    
+    WebsiteSystem <-->|Query/CRUD| DB
+    WebsiteSystem <-->|Upload/Retrieve| Storage
+    
+    style WebsiteSystem fill:#4CAF50,stroke:#2E7D32,stroke-width:3px,color:#fff
+    style DB fill:#2196F3,stroke:#1565C0,stroke-width:2px,color:#fff
+    style Storage fill:#FF9800,stroke:#E65100,stroke-width:2px,color:#fff
+    style Pengunjung fill:#E1F5FE,stroke:#01579B,stroke-width:2px
+    style Admin fill:#FFF3E0,stroke:#E65100,stroke-width:2px

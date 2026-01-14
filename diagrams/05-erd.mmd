@@ -1,0 +1,102 @@
+erDiagram
+    USERS ||--o{ VIDEOTRONS : manages
+    USERS ||--o{ BALIHOS : manages
+    USERS ||--o{ BILLBOARDS : manages
+    USERS ||--o{ HERO_SECTIONS : manages
+    USERS ||--o{ TENTANG_KAMI1S : manages
+    USERS ||--o{ TENTANG_KAMI2S : manages
+    USERS ||--o{ KONTAKS : manages
+    
+    USERS {
+        bigint id PK
+        string name
+        string email UK
+        string password
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    VIDEOTRONS {
+        bigint id PK
+        string judul
+        text alamat
+        text deskripsi
+        string ukuran
+        decimal harga
+        decimal rating
+        json images
+        json bookings
+        boolean is_featured
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    BALIHOS {
+        bigint id PK
+        string judul
+        text alamat
+        text deskripsi
+        string ukuran
+        decimal harga
+        decimal rating
+        json images
+        json bookings
+        boolean is_featured
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    BILLBOARDS {
+        bigint id PK
+        string judul
+        text alamat
+        text deskripsi
+        string ukuran
+        decimal harga
+        decimal rating
+        json images
+        json bookings
+        boolean is_featured
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    HERO_SECTIONS {
+        bigint id PK
+        string page_name UK
+        string title
+        string subtitle
+        string image_path
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    TENTANG_KAMI1S {
+        bigint id PK
+        string judul
+        string subjudul
+        text konten
+        string foto
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    TENTANG_KAMI2S {
+        bigint id PK
+        string visi
+        text deskripsi_visi
+        string misi
+        text deskripsi_misi
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    KONTAKS {
+        bigint id PK
+        text alamat
+        string telepon
+        string email
+        text maps_embed
+        timestamp created_at
+        timestamp updated_at
+    }

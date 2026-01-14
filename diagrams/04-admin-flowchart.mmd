@@ -1,0 +1,86 @@
+flowchart TD
+    Start([👨‍💼 Admin Akses Panel])
+    Start --> LoginPage[🔐 Halaman Login<br/>/admin]
+    
+    LoginPage --> InputCred[Input Email & Password]
+    InputCred --> Validate{Validasi<br/>Kredensial}
+    
+    Validate -->|❌ Gagal| ErrorMsg[Tampilkan Error]
+    ErrorMsg --> LoginPage
+    
+    Validate -->|✅ Berhasil| Dashboard[📊 Dashboard Admin<br/>Filament]
+    
+    Dashboard --> ChooseResource{Pilih Resource}
+    
+    ChooseResource -->|Videotron| VideotronRes[📺 Videotron Resource]
+    ChooseResource -->|Baliho| BalihoRes[🪧 Baliho Resource]
+    ChooseResource -->|Billboard| BillboardRes[📊 Billboard Resource]
+    ChooseResource -->|Hero Section| HeroRes[🖼️ Hero Section Resource]
+    ChooseResource -->|Tentang Kami| TKRes[ℹ️ Tentang Kami Resource]
+    ChooseResource -->|Kontak| KontakRes[📞 Kontak Resource]
+    ChooseResource -->|Users| UserRes[👥 User Management]
+    ChooseResource -->|Logout| Logout([👋 Logout])
+    
+    VideotronRes --> ActionV{Pilih Aksi}
+    ActionV -->|Create| CreateV[➕ Buat Videotron Baru]
+    ActionV -->|Edit| EditV[✏️ Edit Videotron]
+    ActionV -->|Delete| DeleteV[🗑️ Hapus Videotron]
+    ActionV -->|View| ViewV[👁️ Lihat Detail]
+    
+    CreateV --> FormV[Form Input:<br/>- Judul<br/>- Alamat<br/>- Deskripsi<br/>- Ukuran<br/>- Harga<br/>- Rating]
+    FormV --> UploadV[Upload Multiple Images]
+    UploadV --> SetFeaturedV{Set as Featured?}
+    SetFeaturedV -->|Ya| SaveFeaturedV[💾 Simpan dengan<br/>is_featured = true]
+    SetFeaturedV -->|Tidak| SaveV[💾 Simpan Data]
+    SaveFeaturedV --> SuccessV[✅ Success Message]
+    SaveV --> SuccessV
+    SuccessV --> Dashboard
+    
+    EditV --> LoadDataV[Load Data Videotron]
+    LoadDataV --> UpdateFormV[Update Form Data]
+    UpdateFormV --> UpdateImagesV[Update/Add Images]
+    UpdateImagesV --> SaveUpdateV[💾 Update Database]
+    SaveUpdateV --> SuccessUpdateV[✅ Updated]
+    SuccessUpdateV --> Dashboard
+    
+    DeleteV --> ConfirmDelete{Konfirmasi<br/>Hapus?}
+    ConfirmDelete -->|Ya| DeleteDB[🗑️ Delete from DB<br/>& Delete Images]
+    ConfirmDelete -->|Tidak| Dashboard
+    DeleteDB --> SuccessDelete[✅ Deleted]
+    SuccessDelete --> Dashboard
+    
+    ViewV --> ShowDetail[Tampilkan Detail:<br/>- Info Lengkap<br/>- Gallery Images<br/>- Bookings Data]
+    ShowDetail --> BackToDash[← Kembali]
+    BackToDash --> Dashboard
+    
+    BalihoRes --> SameFlowB[🔄 Same CRUD Flow<br/>as Videotron]
+    BillboardRes --> SameFlowBi[🔄 Same CRUD Flow<br/>as Videotron]
+    
+    SameFlowB --> Dashboard
+    SameFlowBi --> Dashboard
+    
+    HeroRes --> ManageHero[Kelola Hero Section<br/>per Page:<br/>- home<br/>- videotron<br/>- baliho<br/>- billboard<br/>- tentang_kami<br/>- kontak]
+    ManageHero --> EditHero[✏️ Edit Title, Subtitle,<br/>Upload Image]
+    EditHero --> SaveHero[💾 Save]
+    SaveHero --> Dashboard
+    
+    TKRes --> ManageTK[Kelola 2 Section:<br/>- Tentang Kami 1<br/>- Tentang Kami 2<br/>Visi & Misi]
+    ManageTK --> EditTK[✏️ Edit Content]
+    EditTK --> SaveTK[💾 Save]
+    SaveTK --> Dashboard
+    
+    KontakRes --> EditKontak[✏️ Edit:<br/>- Alamat<br/>- Telepon<br/>- Email<br/>- Maps Embed]
+    EditKontak --> SaveKontak[💾 Save]
+    SaveKontak --> Dashboard
+    
+    UserRes --> ManageUsers[Kelola User:<br/>- Create<br/>- Edit<br/>- Delete<br/>- Roles]
+    ManageUsers --> Dashboard
+    
+    style Start fill:#4CAF50,stroke:#2E7D32,stroke-width:3px,color:#fff
+    style Dashboard fill:#2196F3,stroke:#1565C0,stroke-width:3px,color:#fff
+    style CreateV fill:#81C784,stroke:#388E3C,stroke-width:2px
+    style EditV fill:#FFB74D,stroke:#F57C00,stroke-width:2px
+    style DeleteV fill:#E57373,stroke:#C62828,stroke-width:2px
+    style SuccessV fill:#66BB6A,stroke:#2E7D32,stroke-width:2px,color:#fff
+    style ErrorMsg fill:#EF5350,stroke:#C62828,stroke-width:2px,color:#fff
+    style Logout fill:#9E9E9E,stroke:#424242,stroke-width:2px

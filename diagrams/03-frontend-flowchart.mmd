@@ -1,0 +1,52 @@
+flowchart TD
+    Start([🌐 Pengunjung Akses Website])
+    Start --> Home{Pilih Menu}
+    
+    Home -->|Home| HomePage[📱 Lihat Homepage]
+    Home -->|Layanan| LayananMenu{Pilih Layanan}
+    Home -->|Tentang Kami| TentangKami[ℹ️ Halaman Tentang Kami]
+    Home -->|Kontak| Kontak[📞 Halaman Kontak]
+    
+    HomePage --> LoadFeatured[Load Featured Items:<br/>- Videotron<br/>- Baliho<br/>- Billboard]
+    LoadFeatured --> LoadHero1[Load Hero Section]
+    LoadHero1 --> LoadTK2[Load Tentang Kami 2]
+    LoadTK2 --> DisplayHome[✅ Tampilkan Homepage]
+    DisplayHome --> End1([Selesai])
+    
+    LayananMenu -->|Videotron| Videotron[📺 Halaman Videotron]
+    LayananMenu -->|Baliho| Baliho[🪧 Halaman Baliho]
+    LayananMenu -->|Billboard| Billboard[📊 Halaman Billboard]
+    
+    Videotron --> LoadVideotron[Load Semua Data Videotron]
+    LoadVideotron --> LoadHero2[Load Hero Section Videotron]
+    LoadHero2 --> DisplayVideotron[✅ Tampilkan Daftar Videotron]
+    DisplayVideotron --> End2([Selesai])
+    
+    Baliho --> LoadBaliho[Load Semua Data Baliho]
+    LoadBaliho --> LoadHero3[Load Hero Section Baliho]
+    LoadHero3 --> DisplayBaliho[✅ Tampilkan Daftar Baliho]
+    DisplayBaliho --> End3([Selesai])
+    
+    Billboard --> LoadBillboard[Load Semua Data Billboard]
+    LoadBillboard --> LoadHero4[Load Hero Section Billboard]
+    LoadHero4 --> DisplayBillboard[✅ Tampilkan Daftar Billboard]
+    DisplayBillboard --> End4([Selesai])
+    
+    TentangKami --> LoadHeroTK[Load Hero Section]
+    LoadHeroTK --> LoadTK1[Load Tentang Kami 1]
+    LoadTK1 --> LoadTK2b[Load Tentang Kami 2]
+    LoadTK2b --> DisplayTK[✅ Tampilkan Tentang Kami<br/>Visi & Misi]
+    DisplayTK --> End5([Selesai])
+    
+    Kontak --> LoadHeroK[Load Hero Section]
+    LoadHeroK --> LoadKontak[Load Info Kontak:<br/>- Alamat<br/>- Telepon<br/>- Email<br/>- Maps]
+    LoadKontak --> DisplayKontak[✅ Tampilkan Halaman Kontak]
+    DisplayKontak --> End6([Selesai])
+    
+    style Start fill:#4CAF50,stroke:#2E7D32,stroke-width:3px,color:#fff
+    style HomePage fill:#81C784,stroke:#388E3C,stroke-width:2px
+    style Videotron fill:#64B5F6,stroke:#1976D2,stroke-width:2px
+    style Baliho fill:#FFB74D,stroke:#F57C00,stroke-width:2px
+    style Billboard fill:#BA68C8,stroke:#7B1FA2,stroke-width:2px
+    style TentangKami fill:#4DD0E1,stroke:#0097A7,stroke-width:2px
+    style Kontak fill:#FF8A65,stroke:#D84315,stroke-width:2px

@@ -1,0 +1,86 @@
+graph TB
+    Pengunjung[👤 Pengunjung]
+    Admin[👨‍💼 Admin]
+    
+    subgraph Frontend_Process[" Frontend Processes "]
+        P1[1.0<br/>Tampilkan<br/>Homepage]
+        P2[2.0<br/>Tampilkan<br/>Layanan]
+        P3[3.0<br/>Tampilkan<br/>Tentang Kami]
+        P4[4.0<br/>Tampilkan<br/>Kontak]
+    end
+    
+    subgraph Backend_Process[" Backend Processes "]
+        P5[5.0<br/>Autentikasi<br/>Admin]
+        P6[6.0<br/>Kelola<br/>Videotron]
+        P7[7.0<br/>Kelola<br/>Baliho]
+        P8[8.0<br/>Kelola<br/>Billboard]
+        P9[9.0<br/>Kelola<br/>Konten CMS]
+    end
+    
+    subgraph DataStores[" Data Stores "]
+        D1[(D1: videotrons)]
+        D2[(D2: balihos)]
+        D3[(D3: billboards)]
+        D4[(D4: hero_sections)]
+        D5[(D5: tentang_kami)]
+        D6[(D6: kontaks)]
+        D7[(D7: users)]
+    end
+    
+    Pengunjung -->|Request| P1
+    Pengunjung -->|Request| P2
+    Pengunjung -->|Request| P3
+    Pengunjung -->|Request| P4
+    
+    P1 -->|Response| Pengunjung
+    P2 -->|Response| Pengunjung
+    P3 -->|Response| Pengunjung
+    P4 -->|Response| Pengunjung
+    
+    Admin -->|Login| P5
+    P5 -->|Authenticated| P6
+    P5 -->|Authenticated| P7
+    P5 -->|Authenticated| P8
+    P5 -->|Authenticated| P9
+    
+    P1 -.->|Read Featured| D1
+    P1 -.->|Read Featured| D2
+    P1 -.->|Read Featured| D3
+    P1 -.->|Read| D4
+    P1 -.->|Read| D5
+    
+    P2 -.->|Read All| D1
+    P2 -.->|Read All| D2
+    P2 -.->|Read All| D3
+    P2 -.->|Read| D4
+    
+    P3 -.->|Read| D4
+    P3 -.->|Read| D5
+    
+    P4 -.->|Read| D4
+    P4 -.->|Read| D6
+    
+    P5 <-.->|Verify| D7
+    P6 <-.->|CRUD| D1
+    P7 <-.->|CRUD| D2
+    P8 <-.->|CRUD| D3
+    P9 <-.->|CRUD| D4
+    P9 <-.->|CRUD| D5
+    P9 <-.->|CRUD| D6
+    
+    style P1 fill:#81C784,stroke:#388E3C,stroke-width:2px
+    style P2 fill:#81C784,stroke:#388E3C,stroke-width:2px
+    style P3 fill:#81C784,stroke:#388E3C,stroke-width:2px
+    style P4 fill:#81C784,stroke:#388E3C,stroke-width:2px
+    style P5 fill:#FFB74D,stroke:#F57C00,stroke-width:2px
+    style P6 fill:#FFB74D,stroke:#F57C00,stroke-width:2px
+    style P7 fill:#FFB74D,stroke:#F57C00,stroke-width:2px
+    style P8 fill:#FFB74D,stroke:#F57C00,stroke-width:2px
+    style P9 fill:#FFB74D,stroke:#F57C00,stroke-width:2px
+    style D1 fill:#64B5F6,stroke:#1976D2,stroke-width:2px
+    style D2 fill:#64B5F6,stroke:#1976D2,stroke-width:2px
+    style D3 fill:#64B5F6,stroke:#1976D2,stroke-width:2px
+    style D4 fill:#64B5F6,stroke:#1976D2,stroke-width:2px
+    style D5 fill:#64B5F6,stroke:#1976D2,stroke-width:2px
+    style D6 fill:#64B5F6,stroke:#1976D2,stroke-width:2px
+    style D7 fill:#64B5F6,stroke:#1976D2,stroke-width:2px
